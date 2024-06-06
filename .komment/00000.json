@@ -1,0 +1,57 @@
+[
+  {
+    "name": "Main.java",
+    "path": "src/Main.java",
+    "content": {
+      "structured": {
+        "description": "A `TextEditor` class and creates an instance of it in the `main` method. The `TextEditor` class is likely to be a part of a text editing toolkit or library, providing various methods for working with text. The creation of a new instance of the `TextEditor` class indicates that the program is preparing to use these methods in some way.",
+        "items": [
+          {
+            "id": "a9426a44-b846-72af-6247-a875bbf13abf",
+            "ancestors": [],
+            "type": "function",
+            "description": "Is a simple program that creates a new instance of the TextEditor class and calls its constructor to initialize its properties.",
+            "name": "Main",
+            "location": {
+              "start": 1,
+              "insert": 1,
+              "offset": " ",
+              "indent": 0,
+              "comment": null
+            },
+            "item_type": "class",
+            "length": 5,
+            "docLength": null
+          },
+          {
+            "id": "56d71a71-f27b-d7a1-aa4e-268eb15d8ba2",
+            "ancestors": [
+              "a9426a44-b846-72af-6247-a875bbf13abf"
+            ],
+            "type": "function",
+            "description": "Creates a new instance of `TextEditor`.",
+            "params": [
+              {
+                "name": "args",
+                "type_name": "String[]",
+                "description": "0 or more command-line arguments passed to the `main` method of the Java class.",
+                "complex_type": false
+              }
+            ],
+            "name": "main",
+            "location": {
+              "start": 2,
+              "insert": 2,
+              "offset": " ",
+              "indent": 4,
+              "comment": null
+            },
+            "item_type": "method",
+            "length": 3,
+            "docLength": null
+          }
+        ]
+      }
+    }
+  }
+]
