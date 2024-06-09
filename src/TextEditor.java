@@ -10,6 +10,14 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+/**
+ * Is designed to create a simple text editor interface with basic functions such as
+ * font selection, font size adjustment, and file input/output capabilities. The class
+ * includes a JTextArea for text input, a JButton for color selection, a JComboBox
+ * for font selection, and a JFileChooser for file input/output operations. The class
+ * also includes an ActionListener interface that handles actions such as font color
+ * selection and file opening/saving.
+ */
 public class TextEditor extends JFrame implements ActionListener {
 
     JTextArea textArea;
@@ -47,6 +55,11 @@ public class TextEditor extends JFrame implements ActionListener {
         fontSizeSpinner.setPreferredSize(new Dimension(50, 25));
         fontSizeSpinner.setValue(20);
         fontSizeSpinner.addChangeListener(new ChangeListener() {
+            /**
+             * Updates the font of a text area based on the value of a font size spinner.
+             * 
+             * @param e state change event that triggered the function execution.
+             */
             @Override
             public void stateChanged(ChangeEvent e) {
                 textArea.setFont(new Font(textArea.getFont().getFamily(), Font.PLAIN, (int) fontSizeSpinner.getValue()));
@@ -87,6 +100,21 @@ public class TextEditor extends JFrame implements ActionListener {
         this.setVisible(true);
     }
 
+    /**
+     * Handles user input from buttons on a GUI, performing actions such as changing text
+     * area font and color, opening and saving files, and closing the application upon exit.
+     * 
+     * @param e ActionEvent object that triggered the action performed, providing access
+     * to information about the source of the event, such as the button or item that was
+     * clicked.
+     * 
+     * 	- `e.getSource()` returns the source of the action that triggered the function,
+     * which can be one of the buttons (`fontColorButton`, `fontBox`, or `openItem`), a
+     * menu item (`saveItem`), or the exit item (`exitItem`).
+     * 	- `e.getAction()` returns the type of action performed, which can be one of the
+     * following: `JComponent.ACTION_CLICKED`, `JComponent.ACTION_ENTER`, `JComponent.ACTION_ESCAPE`,
+     * or `JComponent.ACTION_SELECT`.
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == fontColorButton) {

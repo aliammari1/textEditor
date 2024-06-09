@@ -1,0 +1,149 @@
+[
+  {
+    "name": "Main.java",
+    "path": "src/Main.java",
+    "content": {
+      "structured": {
+        "description": "A `TextEditor` class and creates an instance of it in the `main` method. The `TextEditor` class is likely to be a part of a text editing toolkit or library, providing various methods for working with text. The creation of a new instance of the `TextEditor` class indicates that the program is preparing to use these methods in some way.",
+        "items": [
+          {
+            "id": "a9426a44-b846-72af-6247-a875bbf13abf",
+            "ancestors": [],
+            "type": "function",
+            "description": "Is a simple program that creates a new instance of the TextEditor class and calls its constructor to initialize its properties.",
+            "name": "Main",
+            "location": {
+              "start": 1,
+              "insert": 1,
+              "offset": " ",
+              "indent": 0,
+              "comment": null
+            },
+            "item_type": "class",
+            "length": 5,
+            "docLength": null
+          },
+          {
+            "id": "56d71a71-f27b-d7a1-aa4e-268eb15d8ba2",
+            "ancestors": [
+              "a9426a44-b846-72af-6247-a875bbf13abf"
+            ],
+            "type": "function",
+            "description": "Creates a new instance of `TextEditor`.",
+            "params": [
+              {
+                "name": "args",
+                "type_name": "String[]",
+                "description": "0 or more command-line arguments passed to the `main` method of the Java class.",
+                "complex_type": false
+              }
+            ],
+            "name": "main",
+            "location": {
+              "start": 2,
+              "insert": 2,
+              "offset": " ",
+              "indent": 4,
+              "comment": null
+            },
+            "item_type": "method",
+            "length": 3,
+            "docLength": null
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "TextEditor.java",
+    "path": "src/TextEditor.java",
+    "content": {
+      "structured": {
+        "description": "A `TextEditor` class that creates a simple text editor GUI with basic features such as font selection, size adjustment, and color selection. The code also includes an open, save, and exit menu options. The `TextArea` is the main component of the application, which displays the text entered by the user, and the `JScrollPane` is used to display the text in a scrollable area. The `JMenuBar` is used to create a menu bar with file, edit, and view menus.",
+        "items": [
+          {
+            "id": "79946407-a220-9491-0f4f-159207ce9fc4",
+            "ancestors": [],
+            "type": "function",
+            "description": "Is designed to create a simple text editor interface with basic functions such as font selection, font size adjustment, and file input/output capabilities. The class includes a JTextArea for text input, a JButton for color selection, a JComboBox for font selection, and a JFileChooser for file input/output operations. The class also includes an ActionListener interface that handles actions such as font color selection and file opening/saving.",
+            "name": "TextEditor",
+            "location": {
+              "start": 13,
+              "insert": 13,
+              "offset": " ",
+              "indent": 0,
+              "comment": null
+            },
+            "item_type": "class",
+            "length": 136,
+            "docLength": null
+          },
+          {
+            "id": "0f3c7215-79de-0f9c-ab42-e3d7b35b61f7",
+            "ancestors": [
+              "79946407-a220-9491-0f4f-159207ce9fc4"
+            ],
+            "type": "function",
+            "description": "Updates the font of a text area based on the value of a font size spinner.",
+            "params": [
+              {
+                "name": "e",
+                "type_name": "ChangeEvent",
+                "description": "state change event that triggered the function execution.",
+                "complex_type": false
+              }
+            ],
+            "usage": {
+              "language": "java",
+              "code": "JTextArea textArea = new JTextArea();\n    JSpinner fontSizeSpinner = new JSpinner();\n    JComboBox<String> fontBox = new JComboBox<>();\n\n    public TextEditor() {\n        // Set up the spinners and combo box with the available fonts in the system\n        String[] fonts = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();\n        fontSizeSpinner.setPreferredSize(new Dimension(50, 25));\n        fontSizeSpinner.setValue(20);\n        fontBox.setSelectedItem(\"Arial\");\n\n        // Set up the text area with a default font and size\n        textArea.setFont(new Font(\"Arial\", Font.PLAIN, 20));\n\n        // Add change listeners to the spinner and combo box\n        fontSizeSpinner.addChangeListener(this);\n        fontBox.addActionListener(this);\n    }\n\n    @Override\n    public void stateChanged(ChangeEvent e) {\n        if (e.getSource() == fontSizeSpinner) {\n            int newFontSize = (int)fontSizeSpinner.getValue();\n            String selectedFontFamily = (String)fontBox.getSelectedItem();\n            Font newFont = new Font(selectedFontFamily, Font.PLAIN, newFontSize);\n            textArea.setFont(newFont);\n        }\n    }\n}\n",
+              "description": ""
+            },
+            "name": "stateChanged",
+            "location": {
+              "start": 50,
+              "insert": 50,
+              "offset": " ",
+              "indent": 12,
+              "comment": null
+            },
+            "item_type": "method",
+            "length": 4,
+            "docLength": null
+          },
+          {
+            "id": "5da7ebaf-7c02-6ea4-a740-ddab493eab9d",
+            "ancestors": [
+              "79946407-a220-9491-0f4f-159207ce9fc4"
+            ],
+            "type": "function",
+            "description": "Handles user input from buttons on a GUI, performing actions such as changing text area font and color, opening and saving files, and closing the application upon exit.",
+            "params": [
+              {
+                "name": "e",
+                "type_name": "ActionEvent",
+                "description": "ActionEvent object that triggered the action performed, providing access to information about the source of the event, such as the button or item that was clicked.\n\n* `e.getSource()` returns the source of the action that triggered the function, which can be one of the buttons (`fontColorButton`, `fontBox`, or `openItem`), a menu item (`saveItem`), or the exit item (`exitItem`).\n* `e.getAction()` returns the type of action performed, which can be one of the following: `JComponent.ACTION_CLICKED`, `JComponent.ACTION_ENTER`, `JComponent.ACTION_ESCAPE`, or `JComponent.ACTION_SELECT`.",
+                "complex_type": true
+              }
+            ],
+            "usage": {
+              "language": "java",
+              "code": "public static void main(String[] args) {\n    EventQueue.invokeLater(() -> {\n        JFrame frame = new JFrame(\"Text Editor\");\n        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);\n\n        TextArea textArea = new TextArea();\n        textArea.setLineWrap(true);\n        textArea.setWrapStyleWord(true);\n\n        JMenuBar menuBar = new JMenuBar();\n        JMenu fileMenu = new JMenu(\"File\");\n        JMenuItem openItem = new JMenuItem(\"Open...\");\n        JMenuItem saveItem = new JMenuItem(\"Save As...\");\n        JMenuItem exitItem = new JMenuItem(\"Exit\");\n        JMenu editMenu = new JMenu(\"Edit\");\n        JMenuItem fontBox = new JMenuItem(\"Font...\");\n        JButton fontColorButton = new JButton(\"Font Color\");\n\n        openItem.addActionListener(e -> {\n            JFileChooser fileChooser = new JFileChooser();\n            fileChooser.setCurrentDirectory(new File(\".\"));\n            FileNameExtensionFilter filter = new FileNameExtensionFilter(\"Text files\", \"txt\");\n            fileChooser.setFileFilter(filter);\n            int response = fileChooser.showOpenDialog(null);\n            if (response == JFileChooser.APPROVE_OPTION) {\n                File file = new File(fileChooser.getSelectedFile().getAbsolutePath());\n                Scanner fileIn = null;\n\n                try {\n                    fileIn = new Scanner(file);\n                    if (file.isFile()) {\n                        while (fileIn.hasNextLine()) {\n                            String line = fileIn.nextLine() + \"\\n\";\n                            textArea.append(line);\n                        }\n                    }\n                } catch (FileNotFoundException e1) {\n                    e1.printStackTrace();\n                } finally {\n                    fileIn.close();\n                }\n            }\n        });\n\n        saveItem.addActionListener(e -> {\n            JFileChooser fileChooser = new JFileChooser();\n            fileChooser.setCurrentDirectory(new File(\".\"));\n            int response = fileChooser.showSaveDialog(null);\n            if (response == JFileChooser.APPROVE_OPTION) {\n                File file;\n                PrintWriter fileOut = null;\n                file = new File(fileChooser.getSelectedFile().getAbsolutePath());\n                try {\n                    fileOut = new PrintWriter(file);\n                    fileOut.println(textArea.getText());\n                } catch (FileNotFoundException e1) {\n                    e1.printStackTrace();\n                } finally {\n                    fileOut.close();\n                }\n            }\n        });\n\n        exitItem.addActionListener(e -> System.exit(0));\n\n        fontBox.addActionListener(e -> textArea.setFont(new Font((String) fontBox.getSelectedItem(), Font.PLAIN, textArea.getFont().getSize())));\n\n        JMenuItem colorChooser = new JMenuItem(\"Color...\");\n        colorChooser.addActionListener(e -> {\n            Color c = JColorChooser.showDialog(null, \"Choose a color\", textArea.getForeground());\n            if (c != null) {\n                textArea.setForeground(c);\n            }\n        });\n\n        fileMenu.add(openItem);\n        fileMenu.add(saveItem);\n        fileMenu.addSeparator();\n        fileMenu.add(exitItem);\n\n        editMenu.add(fontBox);\n        editMenu.addSeparator();\n        editMenu.add(colorChooser);\n\n        menuBar.add(fileMenu);\n        menuBar.add(editMenu);\n        frame.setJMenuBar(menuBar);\n        frame.add(textArea, BorderLayout.CENTER);\n        frame.pack();\n        frame.setVisible(true);\n    });\n}\n",
+              "description": ""
+            },
+            "name": "actionPerformed",
+            "location": {
+              "start": 90,
+              "insert": 90,
+              "offset": " ",
+              "indent": 4,
+              "comment": null
+            },
+            "item_type": "method",
+            "length": 58,
+            "docLength": null
+          }
+        ]
+      }
+    }
+  }
+]
